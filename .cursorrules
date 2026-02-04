@@ -1,0 +1,23 @@
+# CIPRO AI Rules & Guidelines
+
+## 🛡️ Git & GitHub Operations (CRITICAL)
+- **NO AUTOMATIC COMMITS**: Never execute `git commit` unless the user explicitly requests it.
+- **NO AUTOMATIC TAGS**: Never execute `git tag` unless explicitly instructed with a specific tag name or milestone.
+- **NO AUTOMATIC PUSHES**: Always wait for the user to say "Sube los cambios" or "Push the changes" before executing `git push`.
+- **Manual Control**: The user prefers to have full control over the repository history.
+
+## 🎨 Design System & Aesthetics
+- **Theme**: Dark Mode SaaS / Premium Immersive.
+- **Core Colors**: 
+  - Background: `#020202` (Void Black)
+  - Accent: `#FF5500` (Electric Orange)
+  - Text: `#FFFFFF` (Primary), `#A1A1AA` (Secondary)
+- **Typography**: Sans-serif geometric (Inter Tight or similar) with subtle negative tracking.
+- **Visual Style**: Minimalist, glassmorphism, smooth gradients, and high-performance animations.
+
+## 🛠️ Technical Stack
+- **Framework**: Next.js 14 (App Router)
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **Canvas**: High-performance HTML5 Canvas with `requestAnimationFrame` (30fps).
+- **Components**: Shadcn/ui compatible structure (`src/components/ui`, `src/lib/utils`).

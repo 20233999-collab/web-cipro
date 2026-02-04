@@ -31,11 +31,19 @@ export default function SmartHeader() {
                 visible: { y: 0 },
                 hidden: { y: -100 },
             }}
+            initial="visible"
             animate={hidden ? "hidden" : "visible"}
-            transition={{ duration: 0.35, ease: "easeInOut" }}
+            transition={{
+                type: "spring",
+                stiffness: 400, // Respuesta instantánea
+                damping: 40,   // Ralentización elegante al final
+                mass: 1
+            }}
             className={clsx(
-                "fixed top-0 left-0 right-0 z-40 px-6 py-4 flex items-center justify-between transition-colors duration-300",
-                scrolled ? "bg-black/50 backdrop-blur-md border-b border-white/5" : "bg-transparent"
+                "fixed top-0 left-0 right-0 z-[100] px-6 py-4 flex items-center justify-between transition-all duration-500",
+                scrolled
+                    ? "bg-void-black/80 backdrop-blur-xl border-b border-white/10"
+                    : "bg-transparent border-b border-transparent"
             )}
         >
             <div className="text-2xl font-bold tracking-tighter text-white">

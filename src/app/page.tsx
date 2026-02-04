@@ -2,6 +2,8 @@ import SmartHeader from '@/components/SmartHeader';
 import HeroHybrid from '@/components/HeroHybrid';
 import SocialProof from '@/components/SocialProof';
 import BenefitsSection from '@/components/BenefitsSection';
+import PortfolioSection from '@/components/PortfolioSection';
+import Footer from '@/components/Footer';
 import GlassDock from '@/components/GlassDock';
 
 export default function Home() {
@@ -24,10 +26,11 @@ export default function Home() {
                     <BenefitsSection />
                 </div>
 
-                {/* Spacer for bottom dock */}
-                <div className="h-40 flex items-center justify-center text-white/10 text-sm">
-                    © 2024 CIPRO. Elite Consulting.
-                </div>
+                {/* Projects / Portfolio */}
+                <PortfolioSection />
+
+                {/* Footer */}
+                <Footer />
             </div>
 
             <GlassDock />

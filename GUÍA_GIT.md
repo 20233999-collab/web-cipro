@@ -36,56 +36,58 @@ git reset --hard
    ```powershell
    git reset --hard a1b2c3d
    ```
-   *⚠️ ADVERTENCIA: Esto borrará permanentemente todos los cambios hechos después de ese commit.*
+   *⚠️ ADVERTENCIA: Esto borrará permanentemente todos los cambios hechos después de ese commit localmente.*
+
+### C. Sincronización Forzada (`Force Push`) 🛠️
+Si hiciste un `reset --hard` de un commit que ya estaba en GitHub, tu PC y la nube estarán "divergentes". Para arreglarlo y que GitHub acepte tu versión local como la única verdad:
+```powershell
+git push origin main --force
+```
+*⚠️ Nota: Solo úsalo cuando quieras borrar commits del historial de GitHub que ya no deseas que existan.*
 
 ---
 
-## 3. Conceptos Clave de Git que debes conocer
+## 3. Uso de Etiquetas (`Tags`) 🏷️
+
+Los Tags son nombres humanos para commits específicos. Sirven para marcar hitos o versiones finales.
+
+- **Crear un Tag local**: `git tag -a v1.0.0-Nombre -m "mensaje"`
+- **Subir el Tag a GitHub**: `git push origin v1.0.0-Nombre`
+- **Volver a un Tag**: `git checkout v1.0.0-Nombre`
+
+---
+
+## 4. Conceptos Clave de Git que debes conocer
 
 - **Repositorio (Repo)**: La carpeta del proyecto que Git está vigilando.
 - **Commit**: Una "foto" de tu código en un momento dado. Es un punto de restauración.
 - **Main**: El nombre de la rama principal de tu código.
 - **Remote (Origin)**: Es la versión de tu código que vive en los servidores de GitHub.
-- **.gitignore**: Un archivo especial donde le decimos a Git qué carpetas ignorar (como `node_modules` que es muy pesada). **Nunca borres este archivo.**
 
 ---
 
-## 4. Consideraciones y Buenas Prácticas
+## 5. Historial de Commits y Avances Clave (Checkpoints)
 
-1. **Commit pequeño, commit seguido**: Es mejor hacer 10 commits pequeños que uno gigante. Facilita mucho volver atrás si algo falla.
-2. **Mensajes descriptivos**: En lugar de poner "cambios", pon "ajuste de brillo en botón CTA". Tu "yo del futuro" te lo agradecerá.
-3. **Sincronización**: Si trabajas desde otra PC, antes de empezar siempre haz un:
-   ```powershell
-   git pull origin main
-   ```
-   Esto descarga los últimos cambios de la nube a tu PC local.
+Aquí llevaremos un registro de los grandes hitos alcanzados en el proyecto.
 
----
+### 📍 Checkpoint 1: Inicialización y Activos
+- **Fecha y Hora**: 2026-02-04 | 02:29 AM
+- **Commit ID**: `6446554`
+- **Detalles**: 
+    - Se configuró la estructura base de Next.js 14.
+    - Se migraron 141 frames de imagen de la secuencia local a la carpeta `public/` para permitir su carga en el Canvas.
+    - Se implementó la lógica de precarga suave (Smart Preloader) del 0% al 100%.
 
-## 5. Solución de Problemas Comunes
-
-### "El término 'git' o 'npm' no se reconoce"
-En Windows, a veces la terminal no encuentra las herramientas. Ejecuta esto para arreglarlo temporalmente en esa sesión:
-```powershell
-$env:Path += ";C:\Program Files\nodejs\"
-```
-
-### Conflictos de Mezcla (Merge Conflicts)
-Ocurre si cambias la misma línea de código en GitHub y en tu PC al mismo tiempo. VS Code te mostrará los archivos en rojo. Deberás elegir qué versión mantener manualmente en el editor y luego hacer un nuevo commit.
-
----
-
-## 6. Comandos Recetario Rápido
-
-| Acción | Comando |
-| :--- | :--- |
-| Ver cambios | `git status` |
-| Guardar todo | `git add .` |
-| Confirmar | `git commit -m "mensaje"` |
-| Subir a la nube | `git push origin main` |
-| Bajar de la nube | `git pull origin main` |
-| Ver historial | `git log --oneline` |
-| Deshacer todo | `git reset --hard HEAD` |
+### 📍 Checkpoint 2: Hero Section & Layout Finalizado (HITO ACTUAL) 🏆
+- **Fecha y Hora**: 2026-02-04 | 03:26 AM
+- **Commit ID**: `12e3288`
+- **Tag**: `v1.0.0-Hero-Final`
+- **Detalles**:
+    - **Optimización de Canvas**: Se elevó la posición del loop reduciendo el espacio con el header en un 65% para un look más Hero.
+    - **Re-branding**: Se cambió el título principal a "Gestión de Proyectos" con tipografía optimizada.
+    - **Cleanup UX**: Se eliminó el subtítulo para un diseño minimalista y se ajustó la distancia entre el loop y el título (reducción del 25%).
+    - **CTA**: Botón "Únete Ahora" con estilo pill y efectos de animación Framer Motion.
+    - **Documentación**: Inclusión de esta guía maestra de Git.
 
 ---
-*Guía generada por Antigravity para el proyecto CIPRO.*
+*Guía actualizada por Antigravity tras la sincronización forzada del repositorio.*

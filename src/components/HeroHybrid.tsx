@@ -172,7 +172,7 @@ export default function HeroHybrid() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.5, duration: 0.8 }}
                     >
-                        <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-white">
+                        <h1 className="text-5xl md:text-7xl font-bold tracking-tighter bg-gradient-to-br from-black via-white to-black bg-clip-text text-transparent pb-2 drop-shadow-2xl">
                             Gestión de Proyectos
                         </h1>
                     </motion.div>
