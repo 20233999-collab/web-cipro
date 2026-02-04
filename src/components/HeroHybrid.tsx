@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Button as MovingBorderButton } from '@/components/ui/moving-border';
 
 const TOTAL_FRAMES = 141;
 const FPS = 30;
@@ -177,25 +178,20 @@ export default function HeroHybrid() {
                         </h1>
                     </motion.div>
 
-                    <motion.button
+                    <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.8, duration: 0.5 }}
-                        className="
-                            px-8 py-4 
-                            rounded-full 
-                            bg-electric-orange 
-                            text-white font-semibold text-lg 
-                            tracking-wide
-                            shadow-[0_0_30px_rgba(255,85,0,0.4)]
-                            hover:shadow-[0_0_50px_rgba(255,85,0,0.6)]
-                            hover:scale-105
-                            active:scale-95
-                            transition-all duration-300
-                        "
                     >
-                        ÚNETE AHORA
-                    </motion.button>
+                        <MovingBorderButton
+                            borderRadius="9999px"
+                            duration={3000}
+                            containerClassName="h-auto w-auto shadow-[0_0_30px_rgba(255,85,0,0.4)] hover:shadow-[0_0_50px_rgba(255,85,0,0.6)] hover:scale-105 active:scale-95 transition-all duration-300"
+                            className="bg-electric-orange border-none text-white font-semibold text-lg tracking-wide px-8 py-4"
+                        >
+                            ÚNETE AHORA
+                        </MovingBorderButton>
+                    </motion.div>
                 </div>
             )}
         </section>
