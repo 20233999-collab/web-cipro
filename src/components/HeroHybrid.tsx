@@ -101,9 +101,9 @@ export default function HeroHybrid() {
                     let targetWidth = canvas.width * scaleFactor;
                     let targetHeight = targetWidth / aspectRatio;
 
-                    // Centering
+                    // Centering - distance to top reduced by 65% (new y is 35% of center point)
                     const x = (canvas.width - targetWidth) / 2;
-                    const y = (canvas.height - targetHeight) / 2;
+                    const y = ((canvas.height - targetHeight) / 2) * 0.35;
 
                     // Clear and Draw
                     // Optimization: Only clear dirty rect if needed, but for full screen video-like, fillRect is safest
@@ -166,18 +166,15 @@ export default function HeroHybrid() {
 
             {/* Overlay Content */}
             {!isLoading && (
-                <div className="relative z-10 text-center space-y-8 mt-96"> {/* Pushed down to avoid covering center image */}
+                <div className="relative z-10 text-center space-y-10 mt-[12rem]"> {/* Reducida la distancia al loop un 25% */}
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.5, duration: 0.8 }}
                     >
-                        <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-white mb-4">
-                            Gestión de Elite.
+                        <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-white">
+                            Gestión de Proyectos
                         </h1>
-                        <p className="text-white/60 text-lg md:text-xl max-w-lg mx-auto">
-                            Transformando estudiantes en consultores de alto impacto.
-                        </p>
                     </motion.div>
 
                     <motion.button
