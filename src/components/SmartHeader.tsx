@@ -34,10 +34,8 @@ export default function SmartHeader() {
             initial="visible"
             animate={hidden ? "hidden" : "visible"}
             transition={{
-                type: "spring",
-                stiffness: 400, // Respuesta instantánea
-                damping: 40,   // Ralentización elegante al final
-                mass: 1
+                duration: 0.3,
+                ease: "easeOut"
             }}
             className={clsx(
                 "fixed top-0 left-0 right-0 z-[100] px-6 py-4 flex items-center justify-between transition-all duration-500",

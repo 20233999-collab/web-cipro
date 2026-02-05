@@ -57,7 +57,7 @@ function BentoItem({ title, description, icon, className, iconClassName, size = 
                         {title}
                     </h3>
                     {description && (
-                        <p className="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
+                        <p className="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors duration-300 line-clamp-2">
                             {description}
                         </p>
                     )}
@@ -80,7 +80,7 @@ export default function PMOKnowledgeSection() {
             {/* Background subtle glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-electric-orange/5 rounded-full blur-[150px] pointer-events-none" />
 
-            <div className="container mx-auto px-6 relative z-10">
+            <div className="container relative z-10">
                 {/* Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -103,7 +103,7 @@ export default function PMOKnowledgeSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.2 }}
-                    className="grid grid-cols-1 md:grid-cols-4 gap-4 max-w-6xl mx-auto"
+                    className="grid grid-cols-1 md:grid-cols-4 gap-4"
                 >
                     {/* Top Wide Card */}
                     <BentoItem

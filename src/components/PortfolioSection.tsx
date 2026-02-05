@@ -28,7 +28,7 @@ const projects = [
 export default function PortfolioSection() {
     return (
         <section id="portafolio" className="py-32 bg-void-black border-t border-white/5">
-            <div className="container mx-auto px-6">
+            <div className="container">
                 <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}

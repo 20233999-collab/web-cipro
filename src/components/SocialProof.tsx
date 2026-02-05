@@ -31,7 +31,7 @@ function Counter({ to, label }: { to: number; label: string }) {
 export default function SocialProof() {
     return (
         <section className="py-24 bg-void-black border-y border-white/5">
-            <div className="container mx-auto px-4">
+            <div className="container">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
                     <Counter to={10} label="Años de Historia" />
                     <Counter to={15} label="Proyectos" />

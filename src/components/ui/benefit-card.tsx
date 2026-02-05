@@ -84,11 +84,11 @@ export default function BenefitCard({
             <div className="relative z-10 h-full flex flex-col justify-between p-8">
 
                 {/* Top Section - Icon + Title (always visible) */}
-                <div className="flex items-start gap-3">
+                <div className="flex items-center gap-2">
                     {/* Icon */}
                     <motion.div
                         className={cn(
-                            "w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-300",
+                            "w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-300",
                             isHovered
                                 ? "bg-electric-orange/20 border border-electric-orange/30"
                                 : "bg-white/10 border border-white/20"
@@ -96,7 +96,7 @@ export default function BenefitCard({
                     >
                         <Icon
                             className={cn(
-                                "w-5 h-5 transition-colors duration-300",
+                                "w-4 h-4 transition-colors duration-300",
                                 isHovered ? "text-electric-orange" : "text-white"
                             )}
                         />
@@ -105,7 +105,7 @@ export default function BenefitCard({
                     {/* Title */}
                     <h3
                         className={cn(
-                            "text-2xl font-bold transition-colors duration-300",
+                            "text-xl font-bold transition-colors duration-300",
                             isHovered ? "text-electric-orange" : "text-white"
                         )}
                     >
