@@ -41,7 +41,7 @@ export default function BenefitsSection() {
                         Más que una comunidad.
                     </h2>
                     <p className="text-gray-400 max-w-2xl mx-auto text-lg hover:text-gray-300 transition-colors">
-                        Un ecosistema diseñado para potenciar tu crecimiento profesional desde el día uno.
+                        Gestionamos el presente, proyectamos el futuro.
                     </p>
                 </motion.div>
 

@@ -18,13 +18,13 @@ export default function Home() {
 
             {/* Content Flow */}
             <div className="relative z-10 bg-void-black">
-                {/* Social Proof */}
-                <SocialProof />
-
                 {/* Benefits / Services */}
                 <div id="nosotros">
                     <BenefitsSection />
                 </div>
+
+                {/* Social Proof */}
+                <SocialProof />
 
                 {/* Projects / Portfolio */}
                 <PortfolioSection />
