@@ -1,92 +1,210 @@
 'use client';
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ExternalLink, ArrowRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const projects = [
     {
-        title: "Optimización de Procesos",
-        category: "Consultoría Estratégica",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
-        description: "Reducción del 30% en tiempos de entrega mediante metodologías Lean."
+        title: "Ingeniero Locaso",
+        description: "Sistema automatizado de gestión académica con IA.",
+        image: "/images/proyectos/ingeniero-locaso.png",
     },
     {
         title: "Transformación Digital",
-        category: "Tech Implementation",
-        image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=800",
-        description: "Implementación de ecosistema digital para gestión de inventarios."
+        description: "Red de integración de datos para empresas en crecimiento.",
+        image: "/images/proyectos/transformacion-digital.png",
     },
     {
-        title: "Gestión de Riesgos",
-        category: "Finanzas",
-        image: "https://images.unsplash.com/photo-1454165833767-027ffea9e77b?auto=format&fit=crop&q=80&w=800",
-        description: "Análisis y mitigación de riesgos críticos en proyectos de infraestructura."
-    }
+        title: "Gestión Ágil",
+        description: "Visualización de flujos de trabajo con metodología Scrum.",
+        image: "/images/proyectos/gestion-agil.png",
+    },
+    {
+        title: "PMO Estratégica",
+        description: "Oficina de proyectos con enfoque en entrega de valor.",
+        image: "/images/proyectos/pmo-estrategica.png",
+    },
+    {
+        title: "Optimización de Procesos",
+        description: "Eficiencia y productividad a través de mejora continua.",
+        image: "/images/proyectos/optimizacion-procesos.png",
+    },
 ];
 
 export default function PortfolioSection() {
-    return (
-        <section id="portafolio" className="py-32 bg-void-black border-t border-white/5">
-            <div className="container">
-                <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-                    <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                    >
-                        <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tighter mb-4">
-                            Proyectos con Impacto.
-                        </h2>
-                        <p className="text-gray-400 text-lg max-w-xl">
-                            Casos de éxito donde transformamos la gestión académica y profesional en resultados tangibles.
-                        </p>
-                    </motion.div>
+    const [centerIndex, setCenterIndex] = useState(0);
+    const totalProjects = projects.length;
 
-                    <motion.button
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        className="group flex items-center gap-2 text-white font-medium hover:text-electric-orange transition-colors"
+    // Get index with wrapping
+    const getWrappedIndex = (index: number) => {
+        return ((index % totalProjects) + totalProjects) % totalProjects;
+    };
+
+    // Navigate to previous
+    const prevSlide = () => {
+        setCenterIndex(getWrappedIndex(centerIndex - 1));
+    };
+
+    // Navigate to next
+    const nextSlide = () => {
+        setCenterIndex(getWrappedIndex(centerIndex + 1));
+    };
+
+    // Click on card to center it
+    const goToSlide = (index: number) => {
+        setCenterIndex(index);
+    };
+
+    // Get visible cards (5 cards: -2, -1, center, +1, +2)
+    const getVisibleCards = () => {
+        const positions = [-2, -1, 0, 1, 2];
+        return positions.map(offset => {
+            const actualIndex = getWrappedIndex(centerIndex + offset);
+            return {
+                project: projects[actualIndex],
+                actualIndex,
+                offset,
+            };
+        });
+    };
+
+    const visibleCards = getVisibleCards();
+
+    return (
+        <section id="portafolio" className="py-32 bg-void-black relative overflow-hidden">
+            {/* Background glow */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-white/5 rounded-full blur-[150px] pointer-events-none" />
+
+            <div className="container">
+                {/* Header */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="text-center mb-20"
+                >
+                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">
+                        Proyectos con Propósito.
+                    </h2>
+                    <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+                        Es el centro del círculo. Casos de éxito donde transformamos la gestión en resultados tangibles.
+                    </p>
+                </motion.div>
+
+                {/* Carousel Container */}
+                <div className="relative flex items-center justify-center h-[500px]">
+
+                    {/* Left Arrow */}
+                    <button
+                        onClick={prevSlide}
+                        className="absolute left-0 md:left-8 z-20 w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-300"
                     >
-                        Ver portafolio completo <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </motion.button>
+                        <ChevronLeft className="w-6 h-6 text-white" />
+                    </button>
+
+                    {/* Cards */}
+                    <div className="relative flex items-center justify-center w-full h-full">
+                        <AnimatePresence mode="popLayout">
+                            {visibleCards.map(({ project, actualIndex, offset }) => {
+                                const isCenter = offset === 0;
+                                const rotation = offset * 10;
+                                const translateX = offset * 120;
+                                const scale = isCenter ? 1 : 0.75 - Math.abs(offset) * 0.05;
+                                const opacity = isCenter ? 1 : 0.6 - Math.abs(offset) * 0.15;
+                                const zIndex = 10 - Math.abs(offset);
+
+                                return (
+                                    <motion.div
+                                        key={actualIndex}
+                                        layout
+                                        initial={{ opacity: 0, scale: 0.8 }}
+                                        animate={{
+                                            opacity,
+                                            scale,
+                                            x: translateX,
+                                            rotate: rotation,
+                                            zIndex,
+                                        }}
+                                        exit={{ opacity: 0, scale: 0.8 }}
+                                        transition={{ duration: 0.5, ease: "easeOut" }}
+                                        onClick={() => goToSlide(actualIndex)}
+                                        className="absolute cursor-pointer"
+                                        style={{ zIndex }}
+                                    >
+                                        {/* Card */}
+                                        <motion.div
+                                            whileHover={isCenter ? { scale: 1.05, boxShadow: "0 0 80px rgba(255,255,255,0.5)" } : {}}
+                                            className={cn(
+                                                "w-[240px] h-[280px] md:w-[280px] md:h-[320px] rounded-3xl overflow-hidden",
+                                                "border-2 transition-all duration-300",
+                                                isCenter
+                                                    ? "border-white/40 shadow-[0_0_60px_rgba(255,255,255,0.35)]"
+                                                    : "border-white/10 hover:border-white/30 hover:shadow-[0_0_40px_rgba(255,255,255,0.2)]"
+                                            )}
+                                        >
+                                            {/* Image */}
+                                            <img
+                                                src={project.image}
+                                                alt={project.title}
+                                                className="w-full h-full object-cover"
+                                            />
+                                        </motion.div>
+
+                                        {/* Text below card - only visible for center */}
+                                        <motion.div
+                                            className="mt-6 text-center max-w-[280px]"
+                                            animate={{
+                                                opacity: isCenter ? 1 : 0,
+                                                y: isCenter ? 0 : 10
+                                            }}
+                                            transition={{ duration: 0.3 }}
+                                        >
+                                            <h3 className="text-xl font-bold text-white mb-2">
+                                                {project.title}
+                                            </h3>
+                                            <p className="text-gray-400 text-sm mb-4 line-clamp-2">
+                                                {project.description}
+                                            </p>
+
+                                            {/* "ir" link */}
+                                            <motion.div
+                                                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white/70 hover:text-white transition-all duration-300 cursor-pointer group rounded-full hover:bg-white/10 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]"
+                                                whileHover={{ scale: 1.05 }}
+                                            >
+                                                <span>ir</span>
+                                                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                            </motion.div>
+                                        </motion.div>
+                                    </motion.div>
+                                );
+                            })}
+                        </AnimatePresence>
+                    </div>
+
+                    {/* Right Arrow */}
+                    <button
+                        onClick={nextSlide}
+                        className="absolute right-0 md:right-8 z-20 w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+                    >
+                        <ChevronRight className="w-6 h-6 text-white" />
+                    </button>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {projects.map((project, index) => (
-                        <motion.div
+                {/* Dots indicator */}
+                <div className="flex justify-center gap-2 mt-8">
+                    {projects.map((_, index) => (
+                        <button
                             key={index}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
-                            className="group relative flex flex-col"
-                        >
-                            <div className="relative aspect-[16/10] overflow-hidden rounded-2xl mb-6 bg-white/5 border border-white/10 group-hover:border-electric-orange/50 transition-colors duration-500">
-                                <img
-                                    src={project.image}
-                                    alt={project.title}
-                                    className="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                                <div className="absolute bottom-4 right-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                                    <div className="w-10 h-10 rounded-full bg-electric-orange flex items-center justify-center text-white shadow-lg">
-                                        <ExternalLink className="w-5 h-5" />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <span className="text-electric-orange text-xs font-bold tracking-widest uppercase mb-2">
-                                {project.category}
-                            </span>
-                            <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-electric-orange transition-colors">
-                                {project.title}
-                            </h3>
-                            <p className="text-gray-400 leading-relaxed">
-                                {project.description}
-                            </p>
-                        </motion.div>
+                            onClick={() => goToSlide(index)}
+                            className={cn(
+                                "w-2 h-2 rounded-full transition-all duration-300",
+                                index === centerIndex
+                                    ? "bg-white w-6"
+                                    : "bg-white/30 hover:bg-white/50"
+                            )}
+                        />
                     ))}
                 </div>
             </div>
