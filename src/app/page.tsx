@@ -2,6 +2,7 @@ import SmartHeader from '@/components/SmartHeader';
 import HeroHybrid from '@/components/HeroHybrid';
 import SocialProof from '@/components/SocialProof';
 import BenefitsSection from '@/components/BenefitsSection';
+import PMOKnowledgeSection from '@/components/PMOKnowledgeSection';
 import PortfolioSection from '@/components/PortfolioSection';
 import Footer from '@/components/Footer';
 import GlassDock from '@/components/GlassDock';
@@ -25,6 +26,9 @@ export default function Home() {
 
                 {/* Social Proof */}
                 <SocialProof />
+
+                {/* PMO Knowledge */}
+                <PMOKnowledgeSection />
 
                 {/* Projects / Portfolio */}
                 <PortfolioSection />
