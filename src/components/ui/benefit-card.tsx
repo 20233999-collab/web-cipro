@@ -51,7 +51,7 @@ export default function BenefitCard({
             <div className="absolute inset-0">
                 {isImageLoaded && (
                     <div
-                        className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                        className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                         style={{ backgroundImage: `url(${imageSrc})` }}
                         role="img"
                         aria-label={imageAlt}
@@ -61,73 +61,74 @@ export default function BenefitCard({
 
             {/* Gradient Overlays */}
             <div className="absolute inset-0">
-                {/* Default gradient - diagonal from top-right dark to bottom-left light */}
+                {/* Default gradient - emphasis on title area (top-left) */}
                 <div
                     className={cn(
-                        "absolute inset-0 transition-opacity duration-500",
-                        "benefit-card-gradient",
+                        "absolute inset-0 transition-opacity duration-300",
+                        "bg-gradient-to-br from-black/70 via-black/40 to-black/20",
                         isHovered && "opacity-0"
                     )}
                 />
 
-                {/* Hover gradient - very dark, almost black */}
+                {/* Hover gradient - darker (top 40%, middle 60%, bottom 90%) */}
                 <div
                     className={cn(
-                        "absolute inset-0 transition-opacity duration-500 opacity-0",
-                        "bg-black/90",
+                        "absolute inset-0 transition-opacity duration-300 opacity-0",
+                        "bg-gradient-to-b from-black/40 via-black/60 to-black/90",
                         isHovered && "opacity-100"
                     )}
                 />
             </div>
 
-            {/* Content Container */}
+            {/* Content */}
             <div className="relative z-10 h-full flex flex-col justify-between p-8">
 
-                {/* Top Section - Title + Icon */}
+                {/* Top Section - Icon + Title (always visible) */}
                 <div className="flex items-start gap-3">
-                    {/* Icon - appears from left on hover */}
-                    <AnimatePresence>
-                        {isHovered && (
-                            <motion.div
-                                initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                exit={{ opacity: 0, x: -20 }}
-                                transition={{ duration: 0.3 }}
-                                className="w-10 h-10 rounded-lg bg-electric-orange/20 backdrop-blur-sm border border-electric-orange/30 flex items-center justify-center flex-shrink-0"
-                            >
-                                <Icon className="w-5 h-5 text-electric-orange" />
-                            </motion.div>
+                    {/* Icon */}
+                    <motion.div
+                        className={cn(
+                            "w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-300",
+                            isHovered
+                                ? "bg-electric-orange/20 border border-electric-orange/30"
+                                : "bg-white/10 border border-white/20"
                         )}
-                    </AnimatePresence>
+                    >
+                        <Icon
+                            className={cn(
+                                "w-5 h-5 transition-colors duration-300",
+                                isHovered ? "text-electric-orange" : "text-white"
+                            )}
+                        />
+                    </motion.div>
 
-                    {/* Title - shifts right when icon appears */}
-                    <motion.h3
-                        animate={{
-                            x: isHovered ? 0 : -53, // Negative to compensate for icon width
-                        }}
-                        transition={{ duration: 0.3 }}
-                        className="text-2xl font-bold text-white"
+                    {/* Title */}
+                    <h3
+                        className={cn(
+                            "text-2xl font-bold transition-colors duration-300",
+                            isHovered ? "text-electric-orange" : "text-white"
+                        )}
                     >
                         {title}
-                    </motion.h3>
+                    </h3>
                 </div>
 
                 {/* Bottom Section - Description + CTA (only on hover) */}
                 <AnimatePresence>
                     {isHovered && (
                         <motion.div
-                            initial={{ opacity: 0, y: 10 }}
+                            initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: 10 }}
-                            transition={{ duration: 0.4, delay: 0.1 }}
-                            className="space-y-3"
+                            exit={{ opacity: 0, y: 20 }}
+                            transition={{ duration: 0.3, ease: "easeOut" }}
+                            className="space-y-4"
                         >
-                            <p className="text-gray-300 leading-relaxed text-sm">
+                            <p className="text-gray-200 leading-relaxed text-base">
                                 {description}
                             </p>
 
-                            {/* CTA with bouncing arrow */}
-                            <div className="flex items-center gap-2 text-electric-orange font-semibold text-sm">
+                            {/* CTA with bouncing arrow - white text, orange on hover */}
+                            <div className="group/cta flex items-center gap-2 text-white hover:text-electric-orange font-semibold text-sm transition-colors duration-200 cursor-pointer w-fit">
                                 <span>Ver más</span>
                                 <motion.div
                                     animate={{
