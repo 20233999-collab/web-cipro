@@ -31,7 +31,7 @@ const benefits = [
 
 export default function BenefitsSection() {
     return (
-        <section className="py-32 bg-void-black relative overflow-hidden">
+        <section className="py-20 md:py-32 bg-void-black relative overflow-hidden">
             {/* Background Gradient */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl pointer-events-none">
                 <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-electric-orange/5 rounded-full blur-[128px]" />
@@ -42,7 +42,7 @@ export default function BenefitsSection() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-center mb-20"
+                    className="text-center mb-12 md:mb-20"
                 >
                     <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">
                         Más que una comunidad.

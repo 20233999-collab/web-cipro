@@ -140,13 +140,13 @@ export default function HeroHybrid() {
                     >
                         <div className="flex flex-col items-center gap-6">
                             <motion.span
-                                className="text-electric-orange text-8xl font-bold tracking-tighter"
+                                className="text-electric-orange text-6xl md:text-8xl font-bold tracking-tighter"
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                             >
                                 {progress}%
                             </motion.span>
-                            <div className="w-64 h-1 bg-white/10 rounded-full overflow-hidden">
+                            <div className="w-48 md:w-64 h-1 bg-white/10 rounded-full overflow-hidden">
                                 <motion.div
                                     className="h-full bg-electric-orange"
                                     initial={{ width: 0 }}
@@ -167,13 +167,13 @@ export default function HeroHybrid() {
 
             {/* Overlay Content */}
             {!isLoading && (
-                <div className="relative z-10 text-center space-y-10 mt-[12rem]"> {/* Reducida la distancia al loop un 25% */}
+                <div className="relative z-10 text-center space-y-8 md:space-y-10 mt-[8rem] md:mt-[12rem] px-4"> {/* Reducida la distancia al loop un 25% */}
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.5, duration: 0.8 }}
                     >
-                        <h1 className="text-5xl md:text-7xl font-bold tracking-tighter bg-gradient-to-br from-black via-white to-black bg-clip-text text-transparent pb-2 drop-shadow-2xl">
+                        <h1 className="text-4xl md:text-7xl font-bold tracking-tighter bg-gradient-to-br from-black via-white to-black bg-clip-text text-transparent pb-2 drop-shadow-2xl">
                             Gestión de Proyectos
                         </h1>
                     </motion.div>
@@ -187,7 +187,7 @@ export default function HeroHybrid() {
                             borderRadius="9999px"
                             duration={3000}
                             containerClassName="h-auto w-auto shadow-[0_0_30px_rgba(255,85,0,0.4)] hover:shadow-[0_0_50px_rgba(255,85,0,0.6)] hover:scale-105 active:scale-95 transition-all duration-300"
-                            className="bg-electric-orange border-none text-white font-semibold text-lg tracking-wide px-8 py-4"
+                            className="bg-electric-orange border-none text-white font-semibold text-base md:text-lg tracking-wide px-6 py-3 md:px-8 md:py-4"
                         >
                             ÚNETE AHORA
                         </MovingBorderButton>

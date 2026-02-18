@@ -7,9 +7,9 @@ import Link from 'next/link';
 
 export default function Footer() {
     return (
-        <footer className="bg-void-black pt-32 pb-16 border-t border-white/5 overflow-hidden">
+        <footer className="bg-void-black pt-20 pb-10 md:pt-32 md:pb-16 border-t border-white/5 overflow-hidden">
             <div className="container mx-auto px-6">
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-16 mb-24">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 mb-16 md:mb-24">
                     {/* Brand Part */}
                     <div className="md:col-span-5">
                         <div className="text-3xl font-black text-white tracking-tighter mb-8 bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent inline-block">

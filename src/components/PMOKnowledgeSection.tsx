@@ -110,7 +110,7 @@ export default function PMOKnowledgeSection() {
                         title="Biblioteca de Recursos"
                         description="Accede a más de 500 templates, guías y documentos esenciales para gestión de proyectos."
                         icon={<BookOpen className="w-6 h-6 text-white group-hover:text-electric-orange transition-colors" />}
-                        className="md:col-span-4 h-[180px]"
+                        className="md:col-span-4 h-auto min-h-[180px] md:h-[180px]"
                     />
 
                     {/* Left Tall Card */}
@@ -118,7 +118,7 @@ export default function PMOKnowledgeSection() {
                         title="Metodologías Ágiles"
                         description="Scrum, Kanban, SAFe y más. Domina las frameworks más utilizadas."
                         icon={<Layers className="w-6 h-6 text-white group-hover:text-electric-orange transition-colors" />}
-                        className="md:col-span-1 md:row-span-2 h-[280px] md:h-auto"
+                        className="md:col-span-1 md:row-span-2 h-auto min-h-[220px] md:h-auto"
                     />
 
                     {/* Center Medium Card - Featured */}
@@ -131,7 +131,7 @@ export default function PMOKnowledgeSection() {
                                 <div className="absolute -top-1 -right-1 w-2 h-2 bg-electric-orange rounded-full animate-pulse" />
                             </div>
                         }
-                        className="md:col-span-2 h-[200px] border-electric-orange/20 bg-gradient-to-br from-electric-orange/5 to-transparent"
+                        className="md:col-span-2 h-auto min-h-[180px] md:h-[200px] border-electric-orange/20 bg-gradient-to-br from-electric-orange/5 to-transparent"
                         iconClassName="bg-electric-orange/10 border-electric-orange/20"
                     />
 
@@ -139,7 +139,7 @@ export default function PMOKnowledgeSection() {
                     <BentoItem
                         title="KPIs & Métricas"
                         icon={<BarChart3 className="w-6 h-6 text-white group-hover:text-electric-orange transition-colors" />}
-                        className="md:col-span-1 h-[200px]"
+                        className="md:col-span-1 h-auto min-h-[160px] md:h-[200px]"
                     />
 
                     {/* Bottom Left Medium Card */}
@@ -147,7 +147,7 @@ export default function PMOKnowledgeSection() {
                         title="PMO Setup"
                         description="Estructura tu oficina de proyectos desde cero."
                         icon={<Target className="w-6 h-6 text-white group-hover:text-electric-orange transition-colors" />}
-                        className="md:col-span-2 h-[160px]"
+                        className="md:col-span-2 h-auto min-h-[160px] md:h-[160px]"
                     />
 
                     {/* Bottom Right Card */}
@@ -155,7 +155,7 @@ export default function PMOKnowledgeSection() {
                         title="Documentación"
                         description="Charters, planes, reportes y plantillas profesionales."
                         icon={<FileText className="w-6 h-6 text-white group-hover:text-electric-orange transition-colors" />}
-                        className="md:col-span-1 h-[160px]"
+                        className="md:col-span-1 h-auto min-h-[160px] md:h-[160px]"
                     />
                 </motion.div>
             </div>
