@@ -91,7 +91,7 @@ export default function PortfolioSection() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-center mb-12 md:mb-20"
+                    className="text-center mb-6 md:mb-20"
                 >
                     <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">
                         Proyectos con Propósito.
@@ -102,12 +102,12 @@ export default function PortfolioSection() {
                 </motion.div>
 
                 {/* Carousel Container */}
-                <div className="relative flex items-center justify-center h-[500px] md:h-[600px]">
+                <div className="relative flex items-center justify-center h-[450px] md:h-[600px]">
 
                     {/* Left Arrow */}
                     <button
                         onClick={prevSlide}
-                        className="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-sm"
+                        className="absolute left-2 md:left-8 top-[40%] md:top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-sm"
                     >
                         <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-white" />
                     </button>
@@ -142,7 +142,7 @@ export default function PortfolioSection() {
                                         exit={{ opacity: 0, scale: 0.8, x: "calc(-50% + 0px)" }}
                                         transition={{ duration: 0.5, ease: "easeOut" }}
                                         onClick={() => goToSlide(actualIndex)}
-                                        className="absolute cursor-pointer left-1/2 top-1/2 -translate-y-1/2 flex flex-col items-center"
+                                        className="absolute cursor-pointer left-1/2 top-[40%] md:top-1/2 -translate-y-1/2 flex flex-col items-center"
                                         style={{ zIndex }}
                                     >
                                         {/* Card */}
@@ -200,7 +200,7 @@ export default function PortfolioSection() {
                     {/* Right Arrow */}
                     <button
                         onClick={nextSlide}
-                        className="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-sm"
+                        className="absolute right-2 md:right-8 top-[40%] md:top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-sm"
                     >
                         <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-white" />
                     </button>
