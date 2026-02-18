@@ -102,12 +102,12 @@ export default function PortfolioSection() {
                 </motion.div>
 
                 {/* Carousel Container */}
-                <div className="relative flex items-center justify-center h-[440px] md:h-[600px]">
+                <div className="relative flex items-center justify-center h-[480px] md:h-[600px]">
 
                     {/* Left Arrow */}
                     <button
                         onClick={prevSlide}
-                        className="absolute left-2 md:left-8 top-[25%] md:top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-sm"
+                        className="absolute left-2 md:left-8 top-[40%] md:top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-sm"
                     >
                         <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-white" />
                     </button>
@@ -200,7 +200,7 @@ export default function PortfolioSection() {
                     {/* Right Arrow */}
                     <button
                         onClick={nextSlide}
-                        className="absolute right-2 md:right-8 top-[25%] md:top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-sm"
+                        className="absolute right-2 md:right-8 top-[40%] md:top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-sm"
                     >
                         <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-white" />
                     </button>
