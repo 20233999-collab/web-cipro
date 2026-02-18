@@ -102,12 +102,12 @@ export default function PortfolioSection() {
                 </motion.div>
 
                 {/* Carousel Container */}
-                <div className="relative flex items-center justify-center h-[450px] md:h-[500px]">
+                <div className="relative flex items-center justify-center h-[500px] md:h-[600px]">
 
                     {/* Left Arrow */}
                     <button
                         onClick={prevSlide}
-                        className="absolute left-2 md:left-8 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-sm"
+                        className="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-sm"
                     >
                         <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-white" />
                     </button>
@@ -142,15 +142,15 @@ export default function PortfolioSection() {
                                         exit={{ opacity: 0, scale: 0.8, x: "calc(-50% + 0px)" }}
                                         transition={{ duration: 0.5, ease: "easeOut" }}
                                         onClick={() => goToSlide(actualIndex)}
-                                        className="absolute cursor-pointer left-1/2 top-1/2 -translate-y-1/2"
+                                        className="absolute cursor-pointer left-1/2 top-1/2 -translate-y-1/2 flex flex-col items-center"
                                         style={{ zIndex }}
                                     >
                                         {/* Card */}
                                         <motion.div
                                             whileHover={isCenter ? { scale: 1.05, boxShadow: "0 0 80px rgba(255,255,255,0.5)" } : {}}
                                             className={cn(
-                                                "w-[200px] h-[280px] md:w-[280px] md:h-[320px] rounded-3xl overflow-hidden bg-void-black",
-                                                "border-2 transition-all duration-300",
+                                                "w-[200px] h-[280px] md:w-[320px] md:h-[400px] rounded-3xl overflow-hidden bg-void-black",
+                                                "border-2 transition-all duration-300 relative",
                                                 isCenter
                                                     ? "border-white/40 shadow-[0_0_60px_rgba(255,255,255,0.35)]"
                                                     : "border-white/10 hover:border-white/30 hover:shadow-[0_0_40px_rgba(255,255,255,0.2)]"
@@ -165,8 +165,9 @@ export default function PortfolioSection() {
                                         </motion.div>
 
                                         {/* Text below card - only visible for center */}
+                                        {/* We use absolute positioning to avoid affecting the vertical center of the card */}
                                         <motion.div
-                                            className="mt-6 text-center max-w-[280px]"
+                                            className="absolute top-[calc(100%+1.5rem)] text-center w-[280px] md:w-[400px]"
                                             animate={{
                                                 opacity: isCenter ? 1 : 0,
                                                 y: isCenter ? 0 : 10,
@@ -174,10 +175,10 @@ export default function PortfolioSection() {
                                             }}
                                             transition={{ duration: 0.3 }}
                                         >
-                                            <h3 className="text-xl font-bold text-white mb-2">
+                                            <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
                                                 {project.title}
                                             </h3>
-                                            <p className="text-gray-400 text-sm mb-4 line-clamp-2 px-2">
+                                            <p className="text-gray-300 text-sm md:text-base mb-4 line-clamp-2 px-4">
                                                 {project.description}
                                             </p>
 
@@ -199,7 +200,7 @@ export default function PortfolioSection() {
                     {/* Right Arrow */}
                     <button
                         onClick={nextSlide}
-                        className="absolute right-2 md:right-8 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-sm"
+                        className="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-sm"
                     >
                         <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-white" />
                     </button>
