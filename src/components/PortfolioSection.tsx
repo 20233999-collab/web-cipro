@@ -107,7 +107,7 @@ export default function PortfolioSection() {
                     {/* Left Arrow */}
                     <button
                         onClick={prevSlide}
-                        className="absolute left-2 md:left-8 top-[32%] md:top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-sm"
+                        className="absolute left-2 md:left-8 top-[10%] md:top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-sm"
                     >
                         <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-white" />
                     </button>
@@ -142,7 +142,7 @@ export default function PortfolioSection() {
                                         exit={{ opacity: 0, scale: 0.8, x: "calc(-50% + 0px)" }}
                                         transition={{ duration: 0.5, ease: "easeOut" }}
                                         onClick={() => goToSlide(actualIndex)}
-                                        className="absolute cursor-pointer left-1/2 top-[32%] md:top-1/2 -translate-y-1/2 flex flex-col items-center"
+                                        className="absolute cursor-pointer left-1/2 top-[10%] md:top-1/2 -translate-y-1/2 flex flex-col items-center"
                                         style={{ zIndex }}
                                     >
                                         {/* Card */}
@@ -200,7 +200,7 @@ export default function PortfolioSection() {
                     {/* Right Arrow */}
                     <button
                         onClick={nextSlide}
-                        className="absolute right-2 md:right-8 top-[32%] md:top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-sm"
+                        className="absolute right-2 md:right-8 top-[10%] md:top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-sm"
                     >
                         <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-white" />
                     </button>
