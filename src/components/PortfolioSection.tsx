@@ -131,8 +131,7 @@ export default function PortfolioSection() {
                                 return (
                                     <motion.div
                                         key={actualIndex}
-                                        layout
-                                        initial={{ opacity: 0, scale: 0.8, x: "-50%" }}
+                                        initial={{ opacity: 0, scale: 0.8, x: "calc(-50% + 0px)" }}
                                         animate={{
                                             opacity,
                                             scale,
@@ -140,10 +139,10 @@ export default function PortfolioSection() {
                                             rotate: rotation,
                                             zIndex,
                                         }}
-                                        exit={{ opacity: 0, scale: 0.8, x: "-50%" }}
+                                        exit={{ opacity: 0, scale: 0.8, x: "calc(-50% + 0px)" }}
                                         transition={{ duration: 0.5, ease: "easeOut" }}
                                         onClick={() => goToSlide(actualIndex)}
-                                        className="absolute cursor-pointer left-1/2 origin-center"
+                                        className="absolute cursor-pointer left-1/2 top-1/2 -translate-y-1/2"
                                         style={{ zIndex }}
                                     >
                                         {/* Card */}
