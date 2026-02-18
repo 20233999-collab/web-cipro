@@ -142,7 +142,7 @@ export default function PortfolioSection() {
                                         exit={{ opacity: 0, scale: 0.8, x: "calc(-50% + 0px)" }}
                                         transition={{ duration: 0.5, ease: "easeOut" }}
                                         onClick={() => goToSlide(actualIndex)}
-                                        className="absolute cursor-pointer left-1/2 top-[10%] md:top-1/2 -translate-y-1/2 flex flex-col items-center"
+                                        className="absolute cursor-pointer left-1/2 top-[10%] md:top-[25%] -translate-y-1/2 flex flex-col items-center"
                                         style={{ zIndex }}
                                     >
                                         {/* Card */}
