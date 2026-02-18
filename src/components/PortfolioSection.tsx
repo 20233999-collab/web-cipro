@@ -121,8 +121,9 @@ export default function PortfolioSection() {
 
                                 const isCenter = offset === 0;
                                 const rotation = offset * 10;
-                                // Adjust translation for mobile
-                                const translateX = isMobile ? offset * 60 : offset * 120;
+                                // Adjust translation for mobile with explicit centering
+                                const xOffset = isMobile ? offset * 50 : offset * 120;
+                                const translateX = `calc(-50% + ${xOffset}px)`;
                                 const scale = isCenter ? 1 : (isMobile ? 0.8 : 0.75) - Math.abs(offset) * 0.05;
                                 const opacity = isCenter ? 1 : 0.6 - Math.abs(offset) * 0.15;
                                 const zIndex = 10 - Math.abs(offset);
@@ -131,7 +132,7 @@ export default function PortfolioSection() {
                                     <motion.div
                                         key={actualIndex}
                                         layout
-                                        initial={{ opacity: 0, scale: 0.8 }}
+                                        initial={{ opacity: 0, scale: 0.8, x: "-50%" }}
                                         animate={{
                                             opacity,
                                             scale,
@@ -139,17 +140,17 @@ export default function PortfolioSection() {
                                             rotate: rotation,
                                             zIndex,
                                         }}
-                                        exit={{ opacity: 0, scale: 0.8 }}
+                                        exit={{ opacity: 0, scale: 0.8, x: "-50%" }}
                                         transition={{ duration: 0.5, ease: "easeOut" }}
                                         onClick={() => goToSlide(actualIndex)}
-                                        className="absolute cursor-pointer"
+                                        className="absolute cursor-pointer left-1/2 origin-center"
                                         style={{ zIndex }}
                                     >
                                         {/* Card */}
                                         <motion.div
                                             whileHover={isCenter ? { scale: 1.05, boxShadow: "0 0 80px rgba(255,255,255,0.5)" } : {}}
                                             className={cn(
-                                                "w-[220px] h-[300px] md:w-[280px] md:h-[320px] rounded-3xl overflow-hidden bg-void-black",
+                                                "w-[200px] h-[280px] md:w-[280px] md:h-[320px] rounded-3xl overflow-hidden bg-void-black",
                                                 "border-2 transition-all duration-300",
                                                 isCenter
                                                     ? "border-white/40 shadow-[0_0_60px_rgba(255,255,255,0.35)]"
@@ -201,7 +202,7 @@ export default function PortfolioSection() {
                         onClick={nextSlide}
                         className="absolute right-2 md:right-8 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-sm"
                     >
-                        <ChevronRight className="w-6 h-6 text-white" />
+                        <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-white" />
                     </button>
                 </div>
 
