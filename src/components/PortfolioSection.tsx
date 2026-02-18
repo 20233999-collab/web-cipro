@@ -149,7 +149,7 @@ export default function PortfolioSection() {
                                         <motion.div
                                             whileHover={isCenter ? { scale: 1.05, boxShadow: "0 0 80px rgba(255,255,255,0.5)" } : {}}
                                             className={cn(
-                                                "w-[260px] h-[340px] md:w-[280px] md:h-[320px] rounded-3xl overflow-hidden bg-void-black", // Taller on mobile
+                                                "w-[220px] h-[300px] md:w-[280px] md:h-[320px] rounded-3xl overflow-hidden bg-void-black",
                                                 "border-2 transition-all duration-300",
                                                 isCenter
                                                     ? "border-white/40 shadow-[0_0_60px_rgba(255,255,255,0.35)]"
@@ -199,7 +199,7 @@ export default function PortfolioSection() {
                     {/* Right Arrow */}
                     <button
                         onClick={nextSlide}
-                        className="absolute right-0 md:right-8 z-20 w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+                        className="absolute right-2 md:right-8 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-sm"
                     >
                         <ChevronRight className="w-6 h-6 text-white" />
                     </button>
