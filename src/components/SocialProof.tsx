@@ -28,15 +28,16 @@ function Counter({ to, label }: { to: number; label: string }) {
     );
 }
 
-return (
-    <section className="py-16 md:py-24 bg-void-black border-y border-white/5">
-        <div className="container">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 text-center">
-                <Counter to={10} label="Años de Historia" />
-                <Counter to={15} label="Proyectos" />
-                <Counter to={45} label="Miembros Activos" />
+export default function SocialProof() {
+    return (
+        <section className="py-16 md:py-24 bg-void-black border-y border-white/5">
+            <div className="container">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 text-center">
+                    <Counter to={10} label="Años de Historia" />
+                    <Counter to={15} label="Proyectos" />
+                    <Counter to={45} label="Miembros Activos" />
+                </div>
             </div>
-        </div>
-    </section>
-);
+        </section>
+    );
 }
